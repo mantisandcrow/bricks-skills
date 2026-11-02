@@ -115,7 +115,8 @@ Adobe Fonts uses the admin setting `adobeFontsProjectId`; Google Fonts can be di
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### Abilities
 

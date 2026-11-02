@@ -129,7 +129,8 @@ Treat converted output as a starting point. If the source implies sliders, accor
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### Static manifest
 

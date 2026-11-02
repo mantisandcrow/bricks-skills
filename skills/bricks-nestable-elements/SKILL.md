@@ -162,9 +162,7 @@ Verify nested-loop behavior on the frontend after saving.
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: nestable elements
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 A **nestable element** is one whose children are full Bricks elements (not a repeater-based config). The parent renders a wrapper; each child is free to be any element type. Sliders, Accordions, Tabs, Navs: anything with "repeatable sections of freeform content" is nestable.
 

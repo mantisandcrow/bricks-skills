@@ -80,9 +80,7 @@ fixes separately from observations when fixes were authorized.
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: browser verification loop
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 No new Bricks abilities here. This workflow composes existing abilities. It sequences the Bricks post abilities (`find-post`, `create-post`, `get-page-elements`, `update-element`) with whatever browser tool is available in the current client.
 If no browser tool is available, stop at "resolve URL" and hand the URL back to the user.
@@ -124,7 +122,10 @@ Use the browser tool available in the current client. Tool names vary, but you n
 - Resize the viewport for responsive checks.
 - Click or evaluate JavaScript when testing interactions.
 
-### Dimensions
+### Step 2: Open in the browser
+
+
+#### Dimensions
 
 Default viewport is often 1280x720. For responsive checks:
 browser.resize({ width: 375, height: 667 })   // mobile
@@ -169,7 +170,10 @@ Verify the change landed. Iterate on remaining mismatches.
 - Wait ~500ms if animations are involved (hero image fade-in).
 - For AJAX-loaded content (query filters, Load More), trigger the interaction before screenshot.
 
-### Cache-busting
+### Step 6: Re-screenshot
+
+
+#### Cache-busting
 
 Bricks caches element CSS per-page in `wp-content/uploads/bricks/css/`. Hard reload often solves stale styles:
 browser.evaluate({ code: "location.reload(true)" })
@@ -177,34 +181,49 @@ browser.evaluate({ code: "location.reload(true)" })
 browser.navigate({ url: "<permalink>?_nocache=<timestamp>" })
 For the "Regenerate CSS files" triage, use `bricks/regenerate-css-files`, or use the WP admin path if the ability is disabled.
 
-### Pixel-level match
+### Common verification tasks
+
+
+#### Pixel-level match
 
 Target: match a Figma frame within 5px.
 1. Screenshot at Figma's viewport width.
 2. Compare element dimensions (heading size, button width, card padding).
 3. Fix via global-var edits where possible.
 
-### Regression check
+### Common verification tasks
+
+
+#### Regression check
 
 Target: "did anything break after my last set of edits?"
 1. Take "before" screenshot (ideally stored from a prior session).
 4. Narrate deltas. Anything unexpected means regression.
 If no "before" exists, skip this: you can't prove no-regression without a baseline.
 
-### Responsive check
+### Common verification tasks
+
+
+#### Responsive check
 
 Target: "does this page look right at mobile/tablet/desktop?"
 1. Screenshot at each of 3 widths.
 2. For each, note: does content reflow gracefully? Are touch targets big enough (min 44px)? Is copy readable?
 3. Fix per-breakpoint via Bricks' breakpoint panel.
 
-### Interactive check
+### Common verification tasks
+
+
+#### Interactive check
 
 Target: "does the mobile nav open when the hamburger is clicked?"
 browser.click({ selector: ".hamburger-btn" })
 Confirm the nav is now open. Same pattern for popups, accordions, tabs, form submissions.
 
-### Performance check
+### Common verification tasks
+
+
+#### Performance check
 
 Target: "is this page fast?"
 Browser tools vary in Lighthouse support. Fallback: use the browser's console and network inspection operations to see what's loading.

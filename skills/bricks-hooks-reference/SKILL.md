@@ -36,9 +36,7 @@ change every element/query on the site.
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: hooks reference
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 Bricks ships many `bricks/*` hooks across the theme. Do not guess hook names. This is a curated index. Names here are verified against the `/includes/` tree: if a hook appears here, it exists.
 

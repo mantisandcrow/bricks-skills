@@ -198,9 +198,13 @@ Use this for unfamiliar expressions in a representative post context. It cannot 
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
-### ACF
+
+### Provider-specific surfaces
+
+
+#### ACF
 
 - Repeater/Flexible Content: use Array-type loop with `{acf_my_repeater}` as source.
 

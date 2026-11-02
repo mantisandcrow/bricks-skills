@@ -75,14 +75,12 @@ Academy reference: https://academy-preview.bricksbuilder.io/builder/features/cod
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### What's excluded
 
 Code-signature regeneration exists in the admin UI, but it is not registered as an MCP ability. It will not appear in `bricks/list-ability-status`, and it should stay admin-only because regenerating signatures can unblock previously quarantined code.
-
-### After explicit approval:
-
 -> { success: true, generatedFileCount: 1423, cssLoading: "file" }
 
 ### Don't

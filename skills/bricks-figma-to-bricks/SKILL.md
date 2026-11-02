@@ -106,9 +106,7 @@ visual/interactive verification as outstanding.
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: Figma -> Bricks workflow
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 No new Bricks abilities here. This workflow composes existing abilities. It sequences existing Bricks abilities (`create-color`, `set-global-variables`, `convert-html-css-to-bricks-data`, `create-component`, `find-post`) with an available Figma integration and a browser tool for verification.
 This skill is the primary route. Do not load every related skill up front. Load one
@@ -128,7 +126,10 @@ If a required integration is not installed, name the missing piece to the user b
 5. Verify     -> open permalink in browser, screenshot vs Figma, iterate
 Skip any phase and the output drifts. Tokens before structure means every class references a variable instead of a hex. Components before pages means repeated patterns aren't DRY. Verify last means misalignments compound.
 
-### Colors
+### Phase 1: Tokens
+
+
+#### Colors
 
 Ask the Figma integration for the file's design-token export or variable collection. Expected shape varies by tool: common outputs:
 Read `list-color-palettes` first and preserve its resource `ownership`. Create or
@@ -145,7 +146,10 @@ Bricks palette colors are stored as palette color objects. Derive `raw` variable
 from explicit Figma token names, not merely from palette labels. A color with both a
 value and `raw: "var(--name)"` emits that CSS variable; do not duplicate the same name
 
-### Typography, spacing, radius, shadows
+### Phase 1: Tokens
+
+
+#### Typography, spacing, radius, shadows
 
 These don't have a color-specific ability: they live in global variables. Category
 values are saved category IDs, not labels. Reuse IDs from `list-global-variables`;
@@ -163,7 +167,10 @@ Use `generate-scale-variables` to preview a regular scale. It rejects `save: tru
 persist the reviewed rows through `set-global-variables` with fresh variable and
 **bricks-design-systems** when the category itself must be created or changed.
 
-### Typography specifics
+### Phase 1: Tokens
+
+
+#### Typography specifics
 
 Figma typography styles typically produce: font-family, size, weight, line-height, letter-spacing. Bricks theme styles hold type-scale tokens, but for programmatic reuse, mirror each as a global variable:
 { name: "font-family-sans", value: "'Inter', system-ui, sans-serif", category: "<typography-category-id>" }
@@ -192,7 +199,10 @@ elements: <elements from convert-html-css-to-bricks-data>,
 it fits or omit the field.
 Result: a component ID. Reuse by referencing the component ID in page-level structure (the `convert-html-css-to-bricks-data` output becomes an instance, not duplicated elements).
 
-### Known `convert-html-css-to-bricks-data` limits
+### Phase 3: Components
+
+
+#### Known `convert-html-css-to-bricks-data` limits
 
 `convert-html-css-to-bricks-data` maps HTML/CSS -> Bricks' closest native element. It **cannot produce**:
 - Nestable Sliders (Slider Nestable): needs per-slide structure that CSS can't describe. Author manually via `add-element`.

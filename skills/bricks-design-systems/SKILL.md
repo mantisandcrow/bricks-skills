@@ -144,7 +144,8 @@ precedence over introducing a parallel scheme.
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### Global classes
 
@@ -154,7 +155,10 @@ Append-only deltas from the agency fork. Upstream these rather than editing the 
 
 - `generate-scale-variables` with `save: false` returns the generated variables for review; show these to the user and wait for approval before saving.
 
-### Link styles gotcha: CSS selectors field
+### Theme styles
+
+
+#### Link styles gotcha: CSS selectors field
 
 - **The "Link: CSS selectors" field in Theme Styles > Links generates `:where()`-wrapped rules.** Bricks wraps every selector in `:where()` during CSS generation, giving them zero specificity. The frontend CSS rule `.bricks-layout-wrapper a { color: currentcolor }` (in `@layer bricks`) then wins, ignoring the theme style link colors entirely.
 - **Fix: deactivate the CSS selectors field.** Leave the Typography/color settings intact. Without custom selectors, Bricks applies link colors globally without `:where()` wrapping, and the styles work correctly.

@@ -47,9 +47,7 @@ when available. Report absent browser or delivery evidence explicitly.
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: forms
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 Forms are the single most-failed-silently feature in Bricks. The form submits, the user sees "thank you", and no email ever arrives. Use it for the Form element surface, the action pipeline, the submissions database, and the debugging order when things do not work.
 

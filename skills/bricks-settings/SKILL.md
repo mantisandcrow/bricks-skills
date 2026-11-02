@@ -120,9 +120,7 @@ bricks/set-global-settings
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: global settings (via MCP)
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 Bricks global settings (the `bricks_global_settings` option: hundreds of keys backing the admin Settings pages) are exposed to MCP through an **allow-list registry**. You don't `update_option` the whole blob: you discover writable keys, then send partial writes that update the keys you send.
 

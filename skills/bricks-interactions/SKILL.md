@@ -191,9 +191,7 @@ Use `formSuccess` for actions that require a successful submission. Enable `runO
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: interactions
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 They can also become the biggest performance drag on Bricks pages: a big list of interactions on every product card compounds fast.
 

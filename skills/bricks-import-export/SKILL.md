@@ -81,9 +81,7 @@ If a `bricks/*` ability is not available as a direct tool, first check whether i
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: unified import / export via MCP
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 The MCP flow mirrors the Bricks UI import/export package, not the older separate global-data JSON and template ZIP flows.
 

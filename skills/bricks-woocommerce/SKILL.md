@@ -234,9 +234,7 @@ Profile product archives, cart updates, and checkout separately; see [bricks-per
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: WooCommerce
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 Most Woo elements wrap WooCommerce's own template functions. Bricks customization is partly about knowing when to use a Bricks element, when to use a Woo template type, and when a Woo hook/template override is the better tool.
 

@@ -61,9 +61,7 @@ replace a WordPress/Builder integration check for the adapted provider.
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: custom dynamic-data providers
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 A **dynamic-data provider** registers tags with Bricks' `{tag_name}` pipeline. Built-in providers cover WP core, ACF, Woo, JetEngine, Pods, Toolset, MetaBox, CMB2. Custom tags let you expose your plugin's data (membership levels, API-fetched values, computed metrics) in Bricks.
 

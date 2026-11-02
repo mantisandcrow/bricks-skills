@@ -199,7 +199,8 @@ Use this when checking whether a site's Bricks abilities are installed, enabled,
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### Verification approach
 
@@ -218,11 +219,17 @@ preview-dynamic-tag (tag: "{your_tag:modifier}", postId: <where it'll render>, c
 If `unknownTags` is non-empty, the tag will render as literal text in production: fix the name (use `list-dynamic-data-tags` to discover the right one) before writing.
 If `isEmpty: true` and the post should have a value, the tag is wrong or the field isn't populated on that post: surface to the user; don't silently write an empty-rendering tag.
 
-### 3. Reference integrity
+### Post-write check categories
+
+
+#### 3. Reference integrity
 
 - `list-templates` + `get-page-elements` for each -> grep for `var(--old-name)`.
 
-### 4. Render verification
+### Post-write check categories
+
+
+#### 4. Render verification
 
 Type-checking and PHP linting verify code correctness, not feature correctness. **If you can't render-verify the change, say so explicitly to the user** rather than reporting "done."
 

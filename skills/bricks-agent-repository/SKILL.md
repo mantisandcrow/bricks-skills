@@ -120,7 +120,8 @@ Split work above 25 resources into independently valid batches. For renames or r
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### Explicit host-owned file workspace
 

@@ -259,7 +259,8 @@ Use this only for **fully fresh** installs. If `get-design-context` returns part
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### Order of operations
 

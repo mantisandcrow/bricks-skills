@@ -110,9 +110,7 @@ PHP syntax checks alone do not establish those behaviors.
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: child theme patterns
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 Bricks is a theme, which means production sites should run on a **child theme**: Bricks core stays updatable, your custom code survives. Use this as the skeleton and convention set.
 
@@ -180,7 +178,10 @@ Bricks hooks most of its own logic at default priority `10`. Rules:
 | Registering dynamic-data providers | `10001` on `init` (Bricks registers at `10000`) |
 | Enqueuing after Bricks | `20` on `wp_enqueue_scripts` |
 
-### Handle names to depend on
+### Asset enqueuing: the Bricks-specific quirks
+
+
+#### Handle names to depend on
 
 - `bricks-frontend`: Bricks' main CSS
 - `bricks-scripts`: Bricks' main JS
@@ -188,7 +189,10 @@ Bricks hooks most of its own logic at default priority `10`. Rules:
 - `bricks-theme-styles`: concatenated theme style CSS
 Depending on these means your asset loads after Bricks'.
 
-### Load in builder preview
+### Asset enqueuing: the Bricks-specific quirks
+
+
+#### Load in builder preview
 
 The Bricks builder preview iframe doesn't enqueue theme assets the same way. If you need your CSS in the preview too:
 // Loads in both frontend and builder preview
@@ -198,7 +202,10 @@ add_action( 'admin_enqueue_scripts', function( $hook ) {
 if ( strpos( $hook, 'bricks' ) === false ) return;
 wp_enqueue_style( 'my-child-admin', MY_CHILD_THEME_URL . '/assets/css/admin.css' );
 
-### Avoid enqueuing heavy scripts on every page
+### Asset enqueuing: the Bricks-specific quirks
+
+
+#### Avoid enqueuing heavy scripts on every page
 
 A common anti-pattern: enqueuing a 200KB carousel library on every page when only one template uses it. Use conditional enqueue:
 if ( ! is_page_template( 'my-carousel-page.php' ) && ! \Bricks\Helpers::post_has_element( 'my-carousel' ) ) return;
@@ -222,19 +229,28 @@ add_theme_support( 'wc-product-gallery-zoom' );
 add_theme_support( 'wc-product-gallery-lightbox' );
 add_theme_support( 'wc-product-gallery-slider' );
 
-### Modify query args site-wide
+### Common hook integration points
+
+
+#### Modify query args site-wide
 
 // includes/hooks/query-filters.php
 if ( $element_id === 'related-products-loop' ) {
 
-### Custom form action
+### Common hook integration points
+
+
+#### Custom form action
 
 // includes/hooks/form-handlers.php
 add_action( 'bricks/form/action/notify_sales', function( $form ) {
 $email = $fields['form-field-abc'] ?? '';
 wp_mail( 'sales@example.com', 'New lead', $email );
 
-### Whitelist echo-tag functions
+### Common hook integration points
+
+
+#### Whitelist echo-tag functions
 
 // includes/hooks/bricks-hooks.php
 '@^mytheme_',                // regex: all mytheme_ helpers

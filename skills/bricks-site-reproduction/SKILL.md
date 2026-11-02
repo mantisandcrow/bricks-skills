@@ -299,18 +299,16 @@ Use `bricks-browser-verify`:
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: live-site reproduction
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 Reproduction here = visual + structural match. Not pixel-identical; close enough that an end user would recognize the design. Legal / copyright considerations are the user's responsibility, not this skill's.
 
-### Pattern C: Scraper / user-provided export
+### Phase 1: Fetch
+
+
+#### Pattern C: Scraper / user-provided export
 
 You still parse it yourself, just from disk instead of network.
-
-### 64748B   -> 7 occurrences   (likely Muted)
-
 Semantic naming makes the design system portable; chromatic naming locks you to the source.
 
 ### Component identification
@@ -321,11 +319,17 @@ List them. Each becomes a Bricks component in phase 3.
 
 Don't try to clone 50 pages; pick the 3-5 that matter.
 
-### Create tokens on the Bricks site
+### Phase 3: Seed
+
+
+#### Create tokens on the Bricks site
 
 `save: true` path is unsupported; it is not a one-call seed. Irregular
 
-### Components first
+### Phase 4: Rebuild
+
+
+#### Components first
 
 `requires_execute_code`. If writes are blocked, persist nothing: remove or replace
 every code-sensitive element and rerun conversion. Even when execution is allowed,

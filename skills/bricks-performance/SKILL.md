@@ -87,9 +87,7 @@ Compare the same page and interaction under matching cache and device conditions
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: performance
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 Bricks is reasonably fast out of the box. When sites get slow, it's almost always one of a handful of causes: CSS loading mode, stripped Bricks loop markers breaking AJAX, missing query cache, image-handling defaults, or too many interactions. Use this diagnostic order for real-world performance issues.
 
@@ -111,14 +109,20 @@ Bricks is reasonably fast out of the box. When sites get slow, it's almost alway
 - "Related posts" loops that run on every single.
 - Any loop referencing ACF Relationship fields.
 
-### Webfonts
+### Assets: webfonts, images
+
+
+#### Webfonts
 
 Bricks enqueues Google Fonts automatically when a theme style references them. **This is an external request per font file, blocking first paint.**
 1. Self-host Google Fonts. Paste the `.woff2` into the Bricks custom-fonts panel; reference the custom font in theme styles.
 2. Filter `bricks/assets/load_webfonts` to false + enqueue your own self-hosted fonts via child theme.
 3. Preload the primary font in `<head>` with `<link rel="preload" as="font" crossorigin>`.
 
-### Images
+### Assets: webfonts, images
+
+
+#### Images
 
 Bricks doesn't lazy-load by default: WP does, since 5.5. Verify `loading="lazy"` is present on images below the fold.
 - Hero image should **not** have `loading="lazy"`. Add `priority` or use `<link rel="preload">`.

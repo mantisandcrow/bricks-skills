@@ -114,27 +114,37 @@ Return a structured audit:
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: site audit
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 A structured read-only audit. Uses only ability reads: never mutates.
 
-### 1. Design-system rot
+### Checks
+
+
+#### 1. Design-system rot
 
 - **Single-use components.** `usageCount === 1` from `get-design-context` with `includeUsage: true`: was it meant to be reused, or should it be inlined back?
 
-### 2. Template hygiene
+### Checks
+
+
+#### 2. Template hygiene
 
 - **Unused templates.** No condition, not referenced.
 - **Overlapping template conditions.** Two templates both targeting `archive: products`: only one wins, the other is dead weight.
 
-### 3. Revision bloat
+### Checks
+
+
+#### 3. Revision bloat
 
 `bricks/list-revisions`. A post with >50 revisions is a candidate for cleanup
 (revisions accumulate on every save).
 
-### 4. Dynamic data
+### Checks
+
+
+#### 4. Dynamic data
 
 stored element tree, then scan every element setting—not a sample—for dynamic-tag
 

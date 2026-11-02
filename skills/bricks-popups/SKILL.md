@@ -181,7 +181,8 @@ For "usable everywhere via JS": set conditions to `{ main: "any" }`.
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### Triggers vs display conditions: two separate systems
 

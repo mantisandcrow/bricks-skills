@@ -167,7 +167,8 @@ If you need a page-specific header: create a header template scoped to that page
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### The `<header>` / `<footer>` wrapper is automatic: don't double up
 

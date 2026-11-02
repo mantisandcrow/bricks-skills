@@ -256,7 +256,8 @@ Even inside Bricks, staff-tier users can modify element fields. If a filter or h
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### The eight extension points
 
@@ -275,7 +276,10 @@ JavaScript: Settings > Custom code body/footer runs on every page, in document o
 
 The broadest dynamic-data tag, and the most dangerous surface. Every Bricks security advisory since 1.9 has touched it.
 
-### Defensive wrapping
+### Echo tag: `{echo:function_name()}`
+
+
+#### Defensive wrapping
 
 Instead of adding a raw WP function to the allow-list and hoping its args are always safe:
 

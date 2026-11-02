@@ -53,9 +53,7 @@ Call `bricks/get-design-context`. Scan the returned names for:
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: naming conventions
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 Every Bricks site settles into naming patterns. Detect them before you write, and **match them**: don't impose generic defaults.
 

@@ -369,13 +369,17 @@ Labels are editable on the main component. The `cid` doesn't change, so all inst
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### Reuse existing components
 
 Do not force reuse when the component's structure or property model does not match the requested design. Reuse is a design-system consideration, not a hard rule.
 
-### Toggle + "Hide element": DOM-level variation
+### Properties: the binding model
+
+
+#### Toggle + "Hide element": DOM-level variation
 
 A Toggle property connected to the "Hide element" control **removes the element from the DOM** at render time (not `display: none`). This is the performance-correct way to do optional sub-sections inside a component: no hidden DOM, no hidden images loading.
 
@@ -383,11 +387,17 @@ A Toggle property connected to the "Hide element" control **removes the element 
 
 - Editing the **main component** (purple-outlined) updates every instance immediately. This is by design: it's the feature.
 
-### Retype a property (e.g. text -> rich text)
+### Workflows
+
+
+#### Retype a property (e.g. text -> rich text)
 
 Step 4 is the painful one: do not retype properties on heavily-used components without warning the user.
 
-### Rename a component
+### Workflows
+
+
+#### Rename a component
 
 Labels are editable on the main component. The `cid` doesn't change, so all instances still resolve correctly. But every place the user visually scanned for the old name is now different: warn before renaming high-use components.
 

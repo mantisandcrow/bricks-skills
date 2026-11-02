@@ -185,9 +185,7 @@ The `bricks-query-loops` skill covers the source-loop side of filter/loop integr
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: query filters
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 Query Filters are the AJAX-driven faceted-filtering system Bricks introduced in 1.11. They look simple (drag an element, pick options) and fail silently (filter renders, nothing happens on click) because they depend on an index that isn't built automatically for custom fields, and on a target-query binding that isn't obvious. Use it to keep filter setup accurate.
 

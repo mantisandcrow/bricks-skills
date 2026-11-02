@@ -147,9 +147,7 @@ Browser verification should cover:
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: mega menus
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 Bricks has two practical mega menu paths. Pick the path before writing data.
 

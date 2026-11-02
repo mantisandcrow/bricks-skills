@@ -88,7 +88,8 @@ resources or destructive choices not covered by the request.
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### Run the audit
 
@@ -98,7 +99,10 @@ Append-only deltas from the agency fork. Upstream these rather than editing the 
 
 **Present issues grouped by severity, not by category.** Errors block correct rendering; warnings are silently-broken config; infos are cleanup. Users triage that way.
 
-### Infos (summarize, fix only when user asks)
+### How to decide what to fix
+
+
+#### Infos (summarize, fix only when user asks)
 
 - **Unused global class**: may be intentional (staging a class for upcoming work). Never auto-delete. Offer a batched delete after confirmation.
 

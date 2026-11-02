@@ -178,9 +178,7 @@ Clear all element conditions:
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: element conditions
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 Element conditions decide whether an individual element renders. They are not CSS visibility toggles. If conditions do not match, Bricks does not render the element markup.
 

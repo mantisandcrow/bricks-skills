@@ -113,7 +113,8 @@ All future edits to "Recent Products" propagate to every element whose `settings
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### Typical flow: reusable "Featured Products" query
 

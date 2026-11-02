@@ -199,7 +199,8 @@ If every Array loop item displays the same value, verify that the tag matches th
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
+
 
 ### Where loops can live
 
@@ -207,7 +208,10 @@ Only these elements can be toggled into a query loop (via the "Use Query Loop" s
 - All layout elements: Container, Section, Block, Div
 **If you don't see the toggle on an element, it can't be looped.** Wrap it in a Block or Div and loop that instead.
 
-### Custom Query (PHP)
+### Query types
+
+
+#### Custom Query (PHP)
 
 - Requires the Bricks code-execution capability: gated by `Capabilities::current_user_can_execute_code()`. The underlying WP capability is `bricks_execute_code`.
 

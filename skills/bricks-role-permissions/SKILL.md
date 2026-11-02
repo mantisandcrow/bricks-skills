@@ -100,9 +100,7 @@ These role-management abilities do not grant code execution. PHP authoring and `
 
 ## Agency field notes
 
-Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
-
-### Bricks: role permissions (via MCP)
+Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
 Bricks builder access is not stored in `bricks_global_settings`.
 It has two real stores:
