@@ -1,6 +1,6 @@
 ---
 name: bricks-agent-repository
-description: Use for complex existing-site edits when focused abilities are insufficient, including ambiguous targets, unsupported operations, oversized documents, dependency analysis, coordinated changes across 2-25 resources, or recovery. Do not use when a focused ability already supports the exact requested edit.
+description: "Handle complex existing-site Bricks edits through advertised repository/workspace workflows when focused abilities cannot express the change."
 ---
 
 # Bricks agent repository
@@ -10,8 +10,7 @@ Treat Bricks as a typed repository while WordPress remains authoritative.
 ## Explicit host-owned file workspace
 
 Use this route only when the task environment explicitly announces
-`bricks.workspace/v1`. The projected files are a temporary authorized checkout,
-not a persistent second source of truth:
+`bricks.workspace/v1`. Treat the projected files as a temporary authorized checkout:
 
 1. Inspect and edit only the supplied resource files with ordinary file tools.
 2. Preserve opaque fields, IDs, baselines, and files outside the requested scope.
@@ -90,6 +89,11 @@ suffixes, flat-tree ordering, and preservation rules. Commit the target and requ
 edit through `bricks/commit-agent-file` with one stable idempotency key. Prefer compact
 readback; request the full document only when another edit needs it.
 
+Preserve every unrelated element in a replacement file. If the live commit schema
+advertises `removeElementIds`, name each element you intentionally remove; its
+descendants are implied. An omission error means restore the missing content
+unless the user asked for its removal.
+
 For custom attributes, preserve ordered `_attributes` records shaped as `{ "id"?: string, "name": string, "value": string }`. The returned editing contract is authoritative.
 
 ## Changesets
@@ -114,7 +118,16 @@ Split work above 25 resources into independently valid batches. For renames or r
 - Do not reconstruct redacted component or code-sensitive data from frontend markup.
 - Prefer a fresh targeted checkout over retaining a large snapshot across unrelated tasks.
 
-## Bricks Academy Reference
+## Agency field notes
+
+Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+
+### Explicit host-owned file workspace
+
+`bricks.workspace/v1`. The projected files are a temporary authorized checkout,
+not a persistent second source of truth:
+
+## Academy reference
 
 For the agent repository and code reference:
 - **Developer Reference**: https://developer.bricksbuilder.io/

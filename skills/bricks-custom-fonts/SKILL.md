@@ -1,11 +1,16 @@
 ---
 name: bricks-custom-fonts
-description: "Use when uploading or managing custom web fonts in Bricks: \"upload Inter.woff2\", \"add a weight to an existing font\", \"list installed fonts\". Covers the `bricks_fonts` CPT, font-face map, allowed formats, MIME enforcement, and the upload-to-fontFaces flow."
+description: "Upload font files, create or rename Bricks font families, or edit weight/style faces. For applying an existing font across a site, use bricks-design-systems."
 ---
 
 **Requires:** Bricks 2.4+ with the Abilities API enabled
 
 # Bricks: custom fonts (via MCP)
+
+For applying an existing font to headings or other site typography, use
+**bricks-design-systems**. Font records describe available families and files;
+Bricks typography controls reference a family as `custom_font_<id>`. Do not rename
+or recreate the family merely to apply it.
 
 Custom fonts in Bricks are three things bound together:
 
@@ -17,9 +22,9 @@ The MCP abilities mirror that model (`includes/abilities/fonts.php`).
 
 ## Abilities
 
-- **`bricks/list-custom-fonts`**: returns `{ fonts, total, page, perPage }`. Each row includes `id`, `family`, and `faceCount`.
+- **`bricks/list-custom-fonts`**: returns `{ items, total, page, perPage, hasMore }`. Each row includes `id`, `family`, and `faceCount`.
 - **`bricks/get-custom-font`**: body `{ fontId }`. Returns `{ font: { id, family, fontFaces } }`.
-- **`bricks/create-custom-font`**: body `{ family }`. Creates the `bricks_fonts` post and returns `{ font }`. There is no `displayName` parameter.
+- **`bricks/create-custom-font`**: body `{ family, fontFaces? }` on Bricks 2.4.3+. Earlier versions accept `{ family }`; check the runtime schema before supplying initial faces. Creates the `bricks_fonts` post and returns `{ font }`. There is no `displayName` parameter.
 - **`bricks/upload-custom-font-file`**: body `{ filename, content }`, where `content` is base64. Returns `{ attachmentId, url, format, bytes }`.
 - **`bricks/update-custom-font`**: body `{ fontId, family?, fontFaces? }`. If `fontFaces` is provided, it replaces the whole font-face map.
 - **`bricks/delete-custom-font`**: body `{ fontId }`. Deletes the font family post. It does not delete uploaded media attachments.
@@ -35,7 +40,7 @@ bricks/upload-custom-font-file
   -> { attachmentId: 500, url: ".../inter-regular.woff2", format: "woff2", bytes: 42112 }
 
 bricks/create-custom-font { family: "Inter" }
-  -> { font: { id: 42, family: "Inter", fontFaces: {} } }
+  -> { font: { id: 42, family: "Inter" } }
 
 bricks/update-custom-font
   fontId: 42
@@ -68,10 +73,12 @@ The upload ability stores the font file as a WP attachment. `update-custom-font`
 Rules:
 
 - Keys are non-empty weight/style strings. Use `400`, `700`, `400italic`, etc.
-- Each value may be one subset object or an array of subset objects. `validate_font_faces()` accepts both and normalizes a single subset back to an object (`includes/abilities/fonts.php:528`, `includes/abilities/fonts.php:571`).
-- Format keys must be one of `woff2`, `woff`, `ttf`, `otf`, `eot`.
-- Values are positive WP attachment IDs created by `bricks/upload-custom-font-file`.
+- Each value may be one subset object or an array of subset objects. `Fonts::validate_font_faces()` accepts both and normalizes a single subset back to an object (`includes/abilities/fonts.php`).
+- File-format keys must be one of `woff2`, `woff`, `ttf`, `otf`, `eot`.
+- File-format values are positive WP attachment IDs created by `bricks/upload-custom-font-file`.
 - `unicode-range` is optional and lets multiple subsets share one weight/style variant.
+- On Bricks 2.4.3+, a subset can also contain `"font-weight-range": "300 900"` for a variable font. The string must contain two numbers from 1 to 1000 with the minimum no greater than the maximum; decimals are accepted. This descriptor overrides the variant key’s weight in generated CSS (`Custom_Fonts::sanitize_font_weight_range()` in `includes/custom-fonts.php`). Check the runtime schema on older versions.
+- `unicode-range` and `font-weight-range` are metadata, not file sources. Each subset still needs at least one file-format key. Read the existing map and preserve these descriptors when replacing `fontFaces`.
 
 ## CSS output
 
@@ -97,7 +104,7 @@ Frontend output currently emits `font-display: swap` in `includes/custom-fonts.p
 
 ## Adobe / Google fonts
 
-Out of scope for this skill. Adobe Fonts uses the admin setting `adobeFontsProjectId`; Google Fonts can be disabled in the admin UI through `disableGoogleFonts`. Do not assume either is writable through MCP. Inspect `bricks/list-settings-schema` on the target site before changing provider settings.
+Adobe Fonts uses the admin setting `adobeFontsProjectId`; Google Fonts can be disabled in the admin UI through `disableGoogleFonts`. Do not assume either is writable through MCP. Inspect `bricks/list-settings-schema` on the target site before changing provider settings.
 
 ## Don't
 
@@ -106,7 +113,15 @@ Out of scope for this skill. Adobe Fonts uses the admin setting `adobeFontsProje
 - Don't update one face by sending a partial `fontFaces` object unless you intend to replace the whole map.
 - Don't delete a family that's referenced by live typography controls without replacing the reference.
 
-## Bricks Academy Reference
+## Agency field notes
+
+Append-only deltas from the agency fork. Upstream these rather than editing the sections above.
+
+### Abilities
+
+- **`bricks/list-custom-fonts`**: returns `{ fonts, total, page, perPage }`. Each row includes `id`, `family`, and `faceCount`.
+
+## Academy reference
 
 For custom font management:
 - **Custom Fonts**: https://academy.bricksbuilder.io/chapters/theme-styles/#fonts

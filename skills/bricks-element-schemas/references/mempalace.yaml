@@ -1,7 +1,0 @@
-wing: dev.mantisandcrow.co.za
-rooms:
-- name: schema
-  description: Bricks element schemas (resolved JSON reference data)
-  keywords:
-  - schema-resolved
-  - schema-manifest
