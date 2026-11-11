@@ -1,6 +1,6 @@
 ---
 name: copywriting
-description: Copywriting methodology for Mantis & Crow — brand voice, the three-lens review framework (Chris Orzechowski for specificity, Gary Halbert for urgency, Steve Jobs for vision), headline/body/CTA patterns, SEO-aware and AEO-aware copy, anti-patterns, templates, and the case-study template. Use when writing or revising headlines, taglines, body copy, about pages, bios, case study narratives, blog posts, sales pages, service descriptions, CTAs, button labels, social captions, email subject lines, or any user-facing copy across agency or client work. Loads alongside seo-playbook and aeo-playbook.
+description: Copywriting methodology for Mantis & Crow — brand voice, the four-lens review framework (Chris Orzechowski for specificity, Gary Halbert for greed and urgency, Steve Jobs for vision, Alex Hormozi for offer and value construction), headline/body/CTA patterns, SEO-aware and AEO-aware copy, anti-patterns, templates, and the case-study template. Use when writing or revising headlines, taglines, body copy, about pages, bios, case study narratives, blog posts, sales pages, service descriptions, CTAs, button labels, social captions, email subject lines, or any user-facing copy across agency or client work. Loads alongside seo-playbook and aeo-playbook.
 ---
 
 # Copywriting Playbook — Mantis & Crow
@@ -21,7 +21,7 @@ Load when the task is any of:
 - Social posts or captions where voice matters
 - Editing existing copy for tightness, tone, or conversion
 - Naming a project, product, or campaign
-- Reviewing or critiquing copy through the three lenses
+- Reviewing or critiquing copy through the four lenses
 
 If the request is "make this sound better" or "run this through the lenses" or mentions any lens name, this skill applies.
 
@@ -77,11 +77,13 @@ The agency's house voice. Proven working lines anchor the voice — every new pi
 - Concrete outcomes: "12% lift", "shipped in 6 weeks", "replaced their CRM"
 - "Honest", "useful", "specific", "fast", "yours"
 
-## The Three-Lens Framework (the agency's house method)
+## The Four-Lens Framework (the agency's house method)
 
-Every piece of Mantis & Crow copy gets reviewed (or drafted) through three lenses before shipping. The lenses are not a checklist — they're three distinct vantage points, and the strongest copy usually combines all three.
+Every piece of Mantis & Crow copy gets reviewed (or drafted) through four lenses before shipping. The lenses are not a checklist — they're four distinct vantage points, and the strongest copy usually combines all four.
 
-The agency default leans **Steve (vision)** with **Chris (specificity)** as the floor and **Gary (urgency)** reserved for high-stakes moments (CTAs, deadline moments, scarcity).
+The agency default leans **Steve (vision)** with **Chris (specificity)** as the floor, **Gary (urgency)** reserved for high-stakes moments (CTAs, deadline moments, scarcity), and **Hormozi (offer)** whenever there is a price, a package, or a decision to close.
+
+The four split into two lineages. **Gary and Hormozi** are the same direct-response school — Halbert's 1980s newsletter craft carried through Dan Kennedy into Hormozi's modern offer construction. Use them for greed, urgency, and the mechanics of what you sell. **Chris and Steve** are the persuasion schools — Chris for conversion mechanics in the written word, Steve for vision and reveal in the spoken word. Use them for how the copy lands.
 
 ### Lens 1 — Chris Orzechowski (conversion & specificity)
 
@@ -144,15 +146,66 @@ The agency default leans **Steve (vision)** with **Chris (specificity)** as the 
 - Could the line be shorter without losing meaning?
 - Does it reframe how the prospect sees their own problem?
 
-### How to apply the three lenses
+### Lens 4 — Alex Hormozi (offer construction, value, pricing)
+
+**Core principle:** A price is only cheap or expensive relative to the value delivered. Never discount — add value. Build an offer so good that saying no feels foolish.
+
+**When to use:** Pricing pages, proposals, service packages, retainer scopes, any "what does this cost and what do I actually get" moment, guarantees, bonuses, lead magnets, upsell and downsell sequences, and any line that has to survive a budget conversation.
+
+**Voice rules:**
+- Value equation: `(Dream Outcome × Perceived Likelihood) ÷ (Time Delay × Effort/Sacrifice)` — grow the numerator, shrink the denominator
+- "Never discount, add value" — a discount teaches the buyer to wait
+- Lead magnet = "a complete solution to a narrow problem", not a PDF of tips
+- Name the guarantee: unconditional, conditional, zero-risk, or performance-based
+- Price against the alternative, not against zero ("the cost of your current freelancer" beats "cheaper than hiring")
+- Bonuses stack value without touching the price
+- Category-of-one positioning — if you're interchangeable, you have no pricing power
+- Scarcity is a function of quantity; urgency is a function of time. Don't fake one with the other
+- "So good they feel stupid saying no" — the offer removes the objection instead of arguing with it
+
+**Hormozi-lens prompts to ask of any draft:**
+- Does the offer deliver a dream outcome, or just a task list?
+- Is the price justified by value in the reader's terms, or only by our hours?
+- Could we add something instead of discounting?
+- Is there a guarantee that makes saying yes the low-risk choice?
+- What's the mechanism — why does this work where the last retainer didn't?
+
+### Primary sources — the four lenses are mined, not remembered
+
+The framework above is a distillation. The verbatim source material behind each lens is filed in MemPalace under the `agency-services` wing, `marketing` room. Pull it when a lens needs more than the summary above — a verbatim quote, a provenance check, or the full pattern list.
+
+| Lens | MemPalace drawer ID | What it holds |
+|---|---|---|
+| Gary Halbert | `drawer_agency-services_marketing_70243f92b704208d81b6b3e9` | 16 patterns with verbatim quotes — the Starving Crowd, A-Pile/B-Pile testing, the Coat of Arms letter, hand-copying the masters, the close at 25% of the ad |
+| Steve Jobs | `drawer_agency-services_marketing_dd2bf61fd1392944965fa692` | 15 patterns — the Stanford three-story keynote, the rule-of-three reveal, the single-number frame ("1,000 Songs in Your Pocket"), the mythic villain, values-first marketing |
+| Chris Orzechowski | `drawer_agency-services_marketing_56f5f387c5caf5fadf290a53` | 21 patterns — the 92-word email, Show-Don't-Tell's four building blocks, Time-Place Tension hooks, the 30-question Million-Dollar Sales Message excavation, anti-corporate voice rules |
+| Alex Hormozi | `drawer_agency-services_marketing_3ce9c13314195c2904f7249f` | 18 patterns — the Value Equation, Grand Slam Offer, MAGIC naming, the Scarcity Stack, the Core Four lead-gen channels, the money model |
+
+**Attribution rules — do not get these wrong:**
+- "Slippery slide" is **Joe Sugarman's** term. Halbert's equivalent is "Taking the Reader by the Hand".
+- "Think Different" was written by TBWA\Chiat\Day (Rob Siltanen, Ken Segall; tagline by Craig Tanimoto). Jobs championed and narrated it; he did not write it.
+- "Real artists ship" traces to the January 1983 Mac team Carmel retreat, not the 1995 Wired interview.
+- "Write like you talk" as a conversational-copy rule is **Paul Graham's**, not Chris's. Chris's version is the show-don't-tell blocks plus "the best emails are emails that actually look like emails".
+- "Charge more to help more" could not be verified in any free Hormozi primary source. Use his verified phrasing instead: "99% of businesses need to raise their prices to grow."
+
+### How to apply the four lenses
 
 **Option A — Draft then review.** Write the piece. Run it through each lens in order. Rewrite the weak spots. Most agency copy lives here.
 
-**Option B — Lens-led drafting.** Pick the lens that fits the section's job. Draft in that voice. Then check the other two for what's missing. Best for hero copy, CTAs, and tagline work.
+**Option B — Lens-led drafting.** Pick the lens that fits the section's job. Draft in that voice. Then check the other three for what's missing. Best for hero copy, CTAs, and tagline work.
 
 **Option C — Three drafts, pick the strongest.** Write three versions of the same line, one per lens. The "winner" is usually a hybrid. Use this for high-stakes lines (the hero H1, the closing CTA, the agency tagline).
 
-**Default combo:** Steve opens the relationship, Chris delivers the mechanism, Gary closes the urgency. Most landing pages follow this rhythm even when the sections aren't labelled.
+**Default combo:** Steve opens the relationship, Chris delivers the mechanism, Gary closes the urgency, Hormozi makes the offer undeniable. Most landing pages follow this rhythm even when the sections aren't labelled.
+
+**Which lens for which job:**
+
+| Job | Lead lens |
+|---|---|
+| Hero H1, brand line, philosophy | Steve |
+| Body copy, emails, FAQ answers, case study narrative | Chris |
+| Closing CTA, deadline copy, comparison, "before your competitor" | Gary |
+| Pricing, packages, proposals, guarantees, bonuses | Hormozi |
 
 ## Core principles (apply to all copy, regardless of lens)
 
@@ -252,7 +305,7 @@ When post-launch metrics don't exist yet, pivot the angle from "results we drove
 1. **Brief** — write 3 bullets: outcome, audience, voice (3 adjectives, e.g. "sharp, specific, unsentimental"). One sentence each.
 2. **Pick the lens** — which lens dominates this section? (Default: Steve to open, Chris to deliver, Gary to close.)
 3. **Draft** — write the bad version first. Get it on the page.
-4. **Run the three lenses** — review through Chris (specific), Gary (urgent), Steve (vision). Note the weakest line in each.
+4. **Run the four lenses** — review through Chris (specific), Gary (urgent), Steve (vision), Hormozi (offer). Note the weakest line in each.
 5. **Cut** — read aloud. Cut every word that doesn't carry weight. Cut 20%.
 6. **Test** — check the headline out of context. Does it stand alone? If not, rewrite.
 7. **Refine** — read for rhythm, then for grammar, then for one last pass for filler.
