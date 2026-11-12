@@ -1,0 +1,85 @@
+wing: agency-services
+rooms:
+- name: general
+  description: Shared agency context, session transcripts, and anything that doesn't match a specific room
+  keywords:
+  - agency
+  - general
+  - session
+  - transcript
+  - opencode
+- name: seo
+  description: SEO playbooks, checklists, and best practices across all clients
+  keywords:
+  - seo
+  - seopress
+  - sitemap
+  - meta tags
+  - google search console
+  - analytics
+  - technical seo
+  - on-page seo
+- name: aeo
+  description: Answer Engine Optimization — AI search, llms.txt, GEO, agent readiness
+  keywords:
+  - aeo
+  - geo
+  - llms.txt
+  - ai search
+  - agent readiness
+  - answer engine
+  - chatgpt
+  - perplexity
+- name: social-media
+  description: Social media setup, management, content strategy, scheduling
+  keywords:
+  - social media
+  - facebook
+  - instagram
+  - linkedin
+  - twitter
+  - content calendar
+  - scheduling
+  - posting
+- name: marketing
+  description: Digital marketing strategy, paid ads, email campaigns, brand positioning
+  keywords:
+  - marketing
+  - ads
+  - google ads
+  - facebook ads
+  - email marketing
+  - campaign
+  - brand
+  - positioning
+- name: bricks
+  description: Bricks Builder — theme styles, elements, query loops, dynamic data, interactions, performance, components, templates, global classes, design tokens
+  keywords:
+  - bricks
+  - bricks builder
+  - theme styles
+  - query loops
+  - elements
+  - dynamic data
+  - interactions
+  - popups
+  - components
+  - templates
+  - global classes
+  - design tokens
+  - breakpoints
+  - conditional logic
+  - wordpress
+- name: lessons
+  description: Real problems encountered during sessions and their fixes — not theoretical, filed from actual work
+  keywords:
+  - lesson
+  - gotcha
+  - fix
+  - workaround
+  - mistake
+  - problem
+  - issue
+  - debug
+  - silent failure
+  - root cause
