@@ -258,6 +258,88 @@ Even inside Bricks, staff-tier users can modify element fields. If a filter or h
 
 Deltas carried from the agency fork (vendor 0.1.3 does not contain them). Upstream these rather than editing the sections above.
 
+### The trap: `_cssCustom` that duplicates a native control silently pins the style
+
+**Never re-declare, in `_cssCustom`, a property that a native Bricks control already
+sets on the same element.** The native control and the custom CSS compile to the
+*same* selector (`.brxe-{id}` inside a component, `#brxe-{id}` standalone).
+
+**Bricks merges them into one base rule and the `_cssCustom` copy is emitted last,
+so it wins — and the real setting is NOT emitted as a separate rule.** The element
+then looks correct in the builder, the style panel accepts edits, and *nothing
+changes on the front end*. Every later edit of that property looks like it is
+being ignored.
+
+Measured proof on the agency site (Case Study template, `post-2493.min.css`):
+before the fix, `row-gap` appeared **exactly once in the whole file**, and
+`margin-bottom: var(--space-3xs)` exactly once — both inside the
+`_cssCustom`-derived `.brxe-itepfr` rule. The component's real `_rowGap` and
+`_margin.bottom` settings produced **no rule of their own**.
+
+**Symptom:** a style-panel edit has no effect on the front end while the builder
+shows the new value; a property you never set still renders with a value; another
+property on the same element updates fine.
+
+**Fix:**
+1. Read the element's real `settings` and find the native control that owns the
+   property. Delete only the declarations in `_cssCustom` that the control
+   already emits. Keep any declaration that has **no** native control — those are
+   the legitimate use of `_cssCustom`.
+2. If every declaration is a duplicate, clear `_cssCustom` entirely.
+3. Regenerate the CSS (`bricks/regenerate-css-files`).
+4. Verify: `grep -o '\.brxe-<cid> {[^}]*}' <template>.min.css` — exactly **one**
+   base rule per component id. Check **two** template files: component CSS lands
+   in every template that instantiates the component.
+
+**The rule text does not change — only its source does.** The emitted values are
+identical before and after, because the native control produces the same
+declarations. The tell is the **declaration order**:
+
+```
+/* from _cssCustom — author order */
+.brxe-itepfr { margin-bottom: ...; row-gap: ...; align-items: center; text-wrap: balance; }
+
+/* from the native control — Bricks' own property order */
+.brxe-itepfr {align-items: center; margin-bottom: ...; text-wrap: balance; row-gap: ...}
+```
+
+Also check the global custom-CSS file: after the fix it must contain **zero** hits
+for the component's selector.
+
+**Count variant rules before calling something a duplicate.** A component element
+can emit several base rules — one per variant, including responsive variants.
+Those are separate by design, not duplicates:
+
+```
+.brxe-fedfex { width: 55px; overflow: hidden; ... }   /* base */
+.brxe-fedfex { width: 50px; ... }                     /* variant */
+.brxe-fedfex { width: 45px; ... }                     /* mobile-landscape variant */
+```
+
+Only a rule that duplicates **another base rule for the same element** is a
+conflict.
+
+**`_cssCustom` targeting a custom class is not a conflict.** Custom CSS aimed at
+your own class (`.mc-case-study__testimonial`) uses a different selector and does
+not compete with the element's native controls. Leave those alone.
+
+### Writing component elements over MCP
+
+`bricks/update-component` requires:
+
+- `componentId`
+- `expectedDesignSystemVersion` (number)
+- `expectedComponentDigest` — the **full 64-character sha**; an 8-character
+  prefix is rejected
+- `elements` — the **complete** component element array, not a partial one. A
+  partial array fails with `Invalid value for "properties[0].connections.{id}".
+  Expected an element id present in the component elements array`, because
+  `properties[].connections` reference element ids that must all be present.
+
+Fetch the component, modify the target element in place, and send every element
+back. The digest changes after each write, so re-fetch before each subsequent
+write.
+
 
 ### The eight extension points
 
